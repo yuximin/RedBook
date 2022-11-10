@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		0E5C653004EF9288E5C97CFB /* Pods_RedBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 273311E27A0B8EBD82CA06B4 /* Pods_RedBook.framework */; };
+		1833C45428F43BB700011621 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833C45328F43BB700011621 /* RootViewController.swift */; };
+		1833C45728F43DBD00011621 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833C45628F43DBD00011621 /* HomeViewController.swift */; };
+		1833C45928F43EC400011621 /* RootTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833C45828F43EC400011621 /* RootTabBarItem.swift */; };
 		18FB07EE28F1A52F00F02855 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB07ED28F1A52F00F02855 /* AppDelegate.swift */; };
-		18FB07F028F1A52F00F02855 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB07EF28F1A52F00F02855 /* SceneDelegate.swift */; };
-		18FB07F228F1A52F00F02855 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB07F128F1A52F00F02855 /* ViewController.swift */; };
-		18FB07F528F1A52F00F02855 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18FB07F328F1A52F00F02855 /* Main.storyboard */; };
 		18FB07F728F1A53100F02855 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18FB07F628F1A53100F02855 /* Assets.xcassets */; };
 		18FB07FA28F1A53100F02855 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18FB07F828F1A53100F02855 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1833C45328F43BB700011621 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		1833C45628F43DBD00011621 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1833C45828F43EC400011621 /* RootTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarItem.swift; sourceTree = "<group>"; };
 		18FB07EA28F1A52F00F02855 /* RedBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18FB07ED28F1A52F00F02855 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		18FB07EF28F1A52F00F02855 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		18FB07F128F1A52F00F02855 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		18FB07F428F1A52F00F02855 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18FB07F628F1A53100F02855 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18FB07F928F1A53100F02855 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18FB07FB28F1A53100F02855 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +51,32 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		1833C45228F43B1D00011621 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				1833C45328F43BB700011621 /* RootViewController.swift */,
+				1833C45828F43EC400011621 /* RootTabBarItem.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		1833C45528F43D9800011621 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1833C45628F43DBD00011621 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1833C45D28F44B7A00011621 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				18FB07F628F1A53100F02855 /* Assets.xcassets */,
+				18FB07F828F1A53100F02855 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		18FB07E128F1A52E00F02855 = {
 			isa = PBXGroup;
 			children = (
@@ -72,13 +98,11 @@
 		18FB07EC28F1A52F00F02855 /* RedBook */ = {
 			isa = PBXGroup;
 			children = (
-				18FB07ED28F1A52F00F02855 /* AppDelegate.swift */,
-				18FB07EF28F1A52F00F02855 /* SceneDelegate.swift */,
-				18FB07F128F1A52F00F02855 /* ViewController.swift */,
-				18FB07F328F1A52F00F02855 /* Main.storyboard */,
-				18FB07F628F1A53100F02855 /* Assets.xcassets */,
-				18FB07F828F1A53100F02855 /* LaunchScreen.storyboard */,
 				18FB07FB28F1A53100F02855 /* Info.plist */,
+				18FB07ED28F1A52F00F02855 /* AppDelegate.swift */,
+				1833C45528F43D9800011621 /* Home */,
+				1833C45D28F44B7A00011621 /* Resources */,
+				1833C45228F43B1D00011621 /* Root */,
 			);
 			path = RedBook;
 			sourceTree = "<group>";
@@ -152,7 +176,6 @@
 			files = (
 				18FB07FA28F1A53100F02855 /* LaunchScreen.storyboard in Resources */,
 				18FB07F728F1A53100F02855 /* Assets.xcassets in Resources */,
-				18FB07F528F1A52F00F02855 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,23 +211,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18FB07F228F1A52F00F02855 /* ViewController.swift in Sources */,
+				1833C45928F43EC400011621 /* RootTabBarItem.swift in Sources */,
+				1833C45428F43BB700011621 /* RootViewController.swift in Sources */,
 				18FB07EE28F1A52F00F02855 /* AppDelegate.swift in Sources */,
-				18FB07F028F1A52F00F02855 /* SceneDelegate.swift in Sources */,
+				1833C45728F43DBD00011621 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		18FB07F328F1A52F00F02855 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				18FB07F428F1A52F00F02855 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		18FB07F828F1A53100F02855 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -343,7 +359,7 @@
 				INFOPLIST_FILE = RedBook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -373,7 +389,7 @@
 				INFOPLIST_FILE = RedBook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
