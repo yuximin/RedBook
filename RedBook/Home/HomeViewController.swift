@@ -15,6 +15,14 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        navigationItem.title = "Home"
     }
 
+}
+
+// MARK: - YNavigationControllerStyleProtocol
+extension HomeViewController: YNavigationControllerStyleProtocol {
+    var isNavigationBarHidden: Bool {
+        false
+    }
 }

@@ -30,7 +30,7 @@ enum RootTabBarItem: Int {
     var viewController: UIViewController {
         switch self {
         case .home:
-            return HomeViewController()
+            return YNavigationController(rootViewController: HomeViewController())
         case .shopping:
             let viewController = UIViewController()
             viewController.view.backgroundColor = .white
