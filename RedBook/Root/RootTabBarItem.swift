@@ -40,9 +40,7 @@ enum RootTabBarItem: Int {
             viewController.view.backgroundColor = .white
             return viewController
         case .mine:
-            let viewController = UIViewController()
-            viewController.view.backgroundColor = .white
-            return viewController
+            return YNavigationController(rootViewController: MeViewController())
         }
     }
 }

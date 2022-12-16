@@ -17,6 +17,8 @@
 		18C359D8291E3FA50056E259 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C359D7291E3FA50056E259 /* AppConstants.swift */; };
 		18C359DA291E6C490056E259 /* HomeRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C359D9291E6C490056E259 /* HomeRecommendViewController.swift */; };
 		18C359DF291E6D3C0056E259 /* HomeRecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C359DE291E6D3C0056E259 /* HomeRecommendCell.swift */; };
+		18C9FD3B294C6F06000F564A /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C9FD3A294C6F06000F564A /* MeViewController.swift */; };
+		18C9FD3E294CA1B9000F564A /* YPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C9FD3D294CA1B9000F564A /* YPageView.swift */; };
 		18FB07EE28F1A52F00F02855 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB07ED28F1A52F00F02855 /* AppDelegate.swift */; };
 		18FB07F728F1A53100F02855 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18FB07F628F1A53100F02855 /* Assets.xcassets */; };
 		18FB07FA28F1A53100F02855 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18FB07F828F1A53100F02855 /* LaunchScreen.storyboard */; };
@@ -32,6 +34,8 @@
 		18C359D7291E3FA50056E259 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		18C359D9291E6C490056E259 /* HomeRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendViewController.swift; sourceTree = "<group>"; };
 		18C359DE291E6D3C0056E259 /* HomeRecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendCell.swift; sourceTree = "<group>"; };
+		18C9FD3A294C6F06000F564A /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		18C9FD3D294CA1B9000F564A /* YPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPageView.swift; sourceTree = "<group>"; };
 		18FB07EA28F1A52F00F02855 /* RedBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18FB07ED28F1A52F00F02855 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18FB07F628F1A53100F02855 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -148,6 +152,31 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		18C9FD38294C6EE5000F564A /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				18C9FD3C294CA19E000F564A /* Views */,
+				18C9FD39294C6EF1000F564A /* ViewController */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		18C9FD39294C6EF1000F564A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				18C9FD3A294C6F06000F564A /* MeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		18C9FD3C294CA19E000F564A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				18C9FD3D294CA1B9000F564A /* YPageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		18FB07E128F1A52E00F02855 = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +198,7 @@
 		18FB07EC28F1A52F00F02855 /* RedBook */ = {
 			isa = PBXGroup;
 			children = (
+				18C9FD38294C6EE5000F564A /* Me */,
 				18C359D6291E3F750056E259 /* Defines */,
 				18C359D3291D179C0056E259 /* Detail */,
 				18C359CD291CDED50056E259 /* Components */,
@@ -286,11 +316,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1833C45928F43EC400011621 /* RootTabBarItem.swift in Sources */,
+				18C9FD3B294C6F06000F564A /* MeViewController.swift in Sources */,
 				1833C45428F43BB700011621 /* RootViewController.swift in Sources */,
 				18FB07EE28F1A52F00F02855 /* AppDelegate.swift in Sources */,
 				18C359DA291E6C490056E259 /* HomeRecommendViewController.swift in Sources */,
 				18C359D8291E3FA50056E259 /* AppConstants.swift in Sources */,
 				18C359DF291E6D3C0056E259 /* HomeRecommendCell.swift in Sources */,
+				18C9FD3E294CA1B9000F564A /* YPageView.swift in Sources */,
 				18C359D0291CF0EE0056E259 /* YNavigationController.swift in Sources */,
 				18C359D2291D14690056E259 /* YNavigationControllerStyleProtocol.swift in Sources */,
 				1833C45728F43DBD00011621 /* HomeViewController.swift in Sources */,
