@@ -19,6 +19,10 @@
 		18C359DF291E6D3C0056E259 /* HomeRecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C359DE291E6D3C0056E259 /* HomeRecommendCell.swift */; };
 		18C9FD3B294C6F06000F564A /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C9FD3A294C6F06000F564A /* MeViewController.swift */; };
 		18C9FD3E294CA1B9000F564A /* YPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C9FD3D294CA1B9000F564A /* YPageView.swift */; };
+		18E37484297686D400D23807 /* YPageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E37483297686D400D23807 /* YPageItemView.swift */; };
+		18E3748629769A0300D23807 /* YPageSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E3748529769A0300D23807 /* YPageSegmentView.swift */; };
+		18E3748929769C2D00D23807 /* YPageSegmentBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E3748829769C2D00D23807 /* YPageSegmentBaseCell.swift */; };
+		18E3748B297794F200D23807 /* YPageSegmentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E3748A297794F200D23807 /* YPageSegmentItem.swift */; };
 		18FB07EE28F1A52F00F02855 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB07ED28F1A52F00F02855 /* AppDelegate.swift */; };
 		18FB07F728F1A53100F02855 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18FB07F628F1A53100F02855 /* Assets.xcassets */; };
 		18FB07FA28F1A53100F02855 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18FB07F828F1A53100F02855 /* LaunchScreen.storyboard */; };
@@ -36,6 +40,10 @@
 		18C359DE291E6D3C0056E259 /* HomeRecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendCell.swift; sourceTree = "<group>"; };
 		18C9FD3A294C6F06000F564A /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		18C9FD3D294CA1B9000F564A /* YPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPageView.swift; sourceTree = "<group>"; };
+		18E37483297686D400D23807 /* YPageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPageItemView.swift; sourceTree = "<group>"; };
+		18E3748529769A0300D23807 /* YPageSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPageSegmentView.swift; sourceTree = "<group>"; };
+		18E3748829769C2D00D23807 /* YPageSegmentBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPageSegmentBaseCell.swift; sourceTree = "<group>"; };
+		18E3748A297794F200D23807 /* YPageSegmentItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPageSegmentItem.swift; sourceTree = "<group>"; };
 		18FB07EA28F1A52F00F02855 /* RedBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18FB07ED28F1A52F00F02855 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18FB07F628F1A53100F02855 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -172,9 +180,21 @@
 		18C9FD3C294CA19E000F564A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				18E3748729769A0700D23807 /* Segment */,
 				18C9FD3D294CA1B9000F564A /* YPageView.swift */,
+				18E37483297686D400D23807 /* YPageItemView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		18E3748729769A0700D23807 /* Segment */ = {
+			isa = PBXGroup;
+			children = (
+				18E3748529769A0300D23807 /* YPageSegmentView.swift */,
+				18E3748829769C2D00D23807 /* YPageSegmentBaseCell.swift */,
+				18E3748A297794F200D23807 /* YPageSegmentItem.swift */,
+			);
+			path = Segment;
 			sourceTree = "<group>";
 		};
 		18FB07E128F1A52E00F02855 = {
@@ -315,12 +335,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E3748929769C2D00D23807 /* YPageSegmentBaseCell.swift in Sources */,
 				1833C45928F43EC400011621 /* RootTabBarItem.swift in Sources */,
 				18C9FD3B294C6F06000F564A /* MeViewController.swift in Sources */,
 				1833C45428F43BB700011621 /* RootViewController.swift in Sources */,
 				18FB07EE28F1A52F00F02855 /* AppDelegate.swift in Sources */,
+				18E37484297686D400D23807 /* YPageItemView.swift in Sources */,
 				18C359DA291E6C490056E259 /* HomeRecommendViewController.swift in Sources */,
 				18C359D8291E3FA50056E259 /* AppConstants.swift in Sources */,
+				18E3748629769A0300D23807 /* YPageSegmentView.swift in Sources */,
+				18E3748B297794F200D23807 /* YPageSegmentItem.swift in Sources */,
 				18C359DF291E6D3C0056E259 /* HomeRecommendCell.swift in Sources */,
 				18C9FD3E294CA1B9000F564A /* YPageView.swift in Sources */,
 				18C359D0291CF0EE0056E259 /* YNavigationController.swift in Sources */,

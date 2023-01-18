@@ -10,19 +10,26 @@ import UIKit
 class MeViewController: UIViewController {
     
     let pageViewHeight = UIScreen.main.bounds.size.height - 58.0
+    
+    private let items: [String] = ["orange", "apple", "strawberry", "Mango", "Banana"]
+    
+    private var pageSegmentItems: [YPageSegmentItem] = []
+    
+    private var pageViews: [YPageView.PageView] = []
 
     // MARK: - life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        createPageView()
         setupUI()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        tableView.frame = view.bounds
+        pageView.frame = view.bounds
     }
     
     // MARK: - ui
@@ -30,67 +37,69 @@ class MeViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         
-        view.addSubview(tableView)
-        tableView.tableHeaderView = headerView
-        
-        headerView.frame = CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.size.width, height: 58.0)
+        view.addSubview(pageView)
+        view.addSubview(pageControl)
+        view.addSubview(pageSegmentView)
+    }
+    
+    private func createPageView() {
+        var pageSegmentItems: [YPageSegmentItem] = []
+        var pageViews: [YPageView.PageView] = []
+        for item in items {
+            let pageItemView = YPageItemView()
+            pageItemView.title = item
+            pageItemView.backgroundColor = .gray
+            pageViews.append(pageItemView)
+            
+            var pageSegmentItem = YPageSegmentItem(title: item)
+            pageSegmentItem.calcItemWidth(with: .systemFont(ofSize: 12.0))
+            pageSegmentItems.append(pageSegmentItem)
+        }
+        self.pageViews = pageViews
+        self.pageSegmentItems = pageSegmentItems
     }
     
     // MARK: - view
     
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
-        return tableView
-    }()
-    
-    private lazy var headerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .black.withAlphaComponent(0.5)
-        return view
-    }()
-    
     private lazy var pageView: YPageView = {
-        let pageView = YPageView(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.size.width, height: pageViewHeight))
-        pageView.isScrollEnable = false
+        let pageView = YPageView()
+        pageView.delegate = self
         return pageView
     }()
+    
+    private lazy var pageControl: UIPageControl = {
+        let pageControl = UIPageControl(frame: CGRect(x: 0.0, y: 80.0, width: 200, height: 50))
+        pageControl.numberOfPages = pageViews.count
+        pageControl.isUserInteractionEnabled = false
+        return pageControl
+    }()
+    
+    private lazy var pageSegmentView: YPageSegmentView = {
+        let segmentView = YPageSegmentView(items: pageSegmentItems)
+        segmentView.frame = CGRect(x: 30.0, y: 200.0, width: 200, height: 50)
+        return segmentView
+    }()
 
 }
 
-// MARK: - UITableViewDataSource
-extension MeViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+// MARK: - YPageViewDelegate
+extension MeViewController: YPageViewDelegate {
+    
+    func numberOfPageView() -> Int {
+        pageViews.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-        cell.contentView.subviews.forEach {
-            $0.removeFromSuperview()
-        }
-        cell.addSubview(pageView)
-        return cell
-    }
-}
-
-// MARK: - UITableViewDelegate
-extension MeViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return pageViewHeight
+    func pageViewForIndex(_ index: Int) -> YPageView.PageView {
+        pageViews[index]
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > 58.0 {
-            pageView.isScrollEnable = true
-        } else {
-            pageView.isScrollEnable = false
-        }
+    func pageView(_ view: YPageView, didSelected index: Int) {
+        pageControl.currentPage = index
     }
+    
 }
 
+// MARK: - YNavigationControllerStyleProtocol
 extension MeViewController: YNavigationControllerStyleProtocol {
     var isNavigationBarHidden: Bool {
         return true

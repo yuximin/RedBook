@@ -7,13 +7,25 @@
 
 import UIKit
 
+protocol YPageViewProtocol {
+    var contentView: UIView { get }
+}
+
+class YPageControl {
+    var items: [String] = []
+}
+
+protocol YPageViewDelegate: AnyObject {
+    func numberOfPageView() -> Int
+    func pageViewForIndex(_ index: Int) -> YPageView.PageView
+    func pageView(_ view: YPageView, didSelected index: Int)
+}
+
 class YPageView: UIView {
     
-    var isScrollEnable: Bool = false {
-        didSet {
-            tableView.isScrollEnabled = isScrollEnable
-        }
-    }
+    typealias PageView = (UIView & YPageViewProtocol)
+    
+    weak var delegate: YPageViewDelegate?
     
     // MARK: - life cycle
     
@@ -32,7 +44,7 @@ class YPageView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        tableView.frame = bounds
+        collectionView.frame = bounds
     }
     
     // MARK: - ui
@@ -40,41 +52,73 @@ class YPageView: UIView {
     private func setupUI() {
         backgroundColor = .clear
         
-        addSubview(tableView)
+        addSubview(collectionView)
     }
     
     // MARK: - view
     
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.isScrollEnabled = false
-        tableView.contentInsetAdjustmentBehavior = .never
-        tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCell")
-        return tableView
+    private lazy var collectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.isPagingEnabled = true
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
+        return collectionView
     }()
 
 }
 
-// MARK: - UITableViewDataSource
-extension YPageView: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        50
+// MARK: - UICollectionViewDataSource
+extension YPageView: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        delegate?.numberOfPageView() ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-        if indexPath.row % 2 == 0 {
-            cell.contentView.backgroundColor = .red.withAlphaComponent(0.5)
-        } else {
-            cell.contentView.backgroundColor = .lightGray
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UICollectionViewCell", for: indexPath)
+        cell.subviews.forEach { subview in
+            subview.removeFromSuperview()
+        }
+        
+        if let itemView = delegate?.pageViewForIndex(indexPath.item) {
+            cell.contentView.addSubview(itemView)
+            itemView.frame = cell.contentView.bounds
         }
         return cell
     }
+    
 }
 
-// MARK: - UITableViewDelegate
-extension YPageView: UITableViewDelegate {
+// MARK: - UICollectionViewDelegate
+extension YPageView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print("YPageView collectionView willDisplay \(indexPath)")
+    }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print("YPageView scrollView didEndDecelerating")
+        let offset = scrollView.contentOffset.x
+        let page = Int(offset) / Int(collectionView.frame.size.width)
+        delegate?.pageView(self, didSelected: page)
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension YPageView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        collectionView.bounds.size
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        0.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        0.0
+    }
 }
